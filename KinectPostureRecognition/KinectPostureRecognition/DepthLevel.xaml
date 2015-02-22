@@ -1,0 +1,11 @@
+﻿<Window x:Class="KinectPostureRecognition.DepthLevel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="DepthLevel" Height="300" Width="300">
+    <Grid>
+        <Image x:Name="DepthLevelsImage"/>
+       <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1" Grid.Row="0">
+        <Button Content="Take PictureDepth" Click="TakePictureDepthButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

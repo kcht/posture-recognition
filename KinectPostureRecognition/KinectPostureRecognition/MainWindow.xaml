@@ -1,0 +1,33 @@
+﻿<Window x:Class="KinectPostureRecognition.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="Auto" Width="Auto">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Image x:Name="ColorImageElement" Grid.Row="0" Grid.Column="0"  Height="320" VerticalAlignment="Bottom"/>
+        <Image x:Name="DepthImageElement" Grid.Row="0" Grid.Column="1"  Height="320" VerticalAlignment="Bottom"
+               MouseLeftButtonUp="DepthImage_MouseLeftButtonUp"/>
+        <Image x:Name="EnhancedDepthImageElement" Grid.Row="0" Grid.Column="2"  Height="320" VerticalAlignment="Bottom"/>
+
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="0">
+            <Button Content="Take Picture" Click="TakePictureButton_Click"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1" Grid.Row="0">
+            <Button Content="Take PictureDepth" Click="TakePictureDepthButton_Click"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" >
+            <Label Content="ClickedDepth" FontSize="30"  />
+             <TextBlock x:Name="PixelDepthTextBlock" FontSize="30" />
+
+        </StackPanel>
+    </Grid>
+</Window>

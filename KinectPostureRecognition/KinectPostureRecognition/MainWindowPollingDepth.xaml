@@ -1,0 +1,11 @@
+﻿<Window x:Class="KinectPostureRecognition.MainWindowPolling"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindowPolling" Height="300" Width="300">
+    <Grid>
+        <Image x:Name="ColorImageElementPolling" Height="320" VerticalAlignment="Bottom" Margin="-37,-50,37,0"/>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Button Content="Take Picture" Click="TakePictureButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

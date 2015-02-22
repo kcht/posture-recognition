@@ -1,0 +1,15 @@
+﻿<Window x:Class="KinectPostureRecognition.AppChooser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AppChooser" Height="300" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="150*"/>
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0" Content="Sideways View" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Stretch" Width="300" FontSize="36" Click="sidewaysView_Click"/>
+        <Button Grid.Row="1" Content="Front View" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Stretch" Width="300" FontSize="36" Click="frontView_Click"/>
+
+
+    </Grid>
+</Window>

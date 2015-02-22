@@ -1,0 +1,103 @@
+﻿<Window x:Class="KinectPostureRecognition.SkeletonOverlapping"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SkeletonOverlapping" Height="742.374" Width="623.88">
+    <Grid Margin="0,0,0,55">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Image Name="SkeletonColorOverlappingImage" Height="480" Width="640" Grid.Column="0" Grid.Row="0"/>
+        <Image Name="SkeletonDepthOverlappingImage" Height="480" Width="640" Grid.Column="1" Grid.Row="0"/>
+
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0">
+            <Button Content="Take PictureColor" Click="TakePictureButtonColor_Click"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1" Grid.Row="0">
+            <Button Content="Take PictureDepth" Click="TakePictureButtonDepth_Click"/>
+        </StackPanel>
+        <CheckBox Content="SkeletonVisible" Checked="SkeletonVisible_Checked" Unchecked="SkeletonVisible_Unchecked" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" IsChecked="True"/>
+        <CheckBox Content="SeatedMode" Checked="SeatedMode_Checked" Unchecked="SeatedMode_Unchecked" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Row="1" IsChecked="False"/>
+        <CheckBox Content="ShowHalfSkeleton" Checked="ShowHalfSkeleton_Checked" Unchecked="ShowHalfSkeleton_Unchecked" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Row="2" IsChecked="False" Margin="0,0,0,112"/>
+
+        <Grid Grid.Row="2" Grid.Column="1" Margin="0,0,141,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" MinWidth="83"/>
+                <ColumnDefinition Width="Auto" MinWidth="99"/>
+            </Grid.ColumnDefinitions>
+            <Label Name="kneeAngleLabel" Content="Angle: knee " Grid.Column="0" Margin="0,0,0,0" Grid.Row="0" />
+            <Label Name="headAngleLabel" Content="Angle: head " Grid.Column="0" Margin="0,0,0,0" Grid.Row="1"/>
+            <Label Name="bodyAngleLabel" Content="Angle: body " Grid.Column="0" Margin="0,0,0,0" Grid.Row="2"/>
+            <Label Name="spinalRatioLabel" Content="Ratio: spine " Grid.Column="0" Margin="0,0,0,0" Grid.Row="3"/>
+            <Label Name="sidewaysRatioLabel" Content="Ratio: sideways" Grid.Column="0" Margin="0,0,0,0" Grid.Row="4"/>
+
+            <TextBlock Name="kneeAngleText" Grid.Column="1" Grid.Row="0" Text="value"/>
+            <TextBlock Name="headAngleText" Grid.Column="1" Grid.Row="1" Text="value"/>
+            <TextBlock Name="bodyAngleText" Grid.Column="1" Grid.Row="2" Text="value"/>
+            <TextBlock Name="spinalRatioText" Grid.Column="1" Grid.Row="3" Text="value"/>
+            <TextBlock Name="sidewaysRatioText" Grid.Column="1" Grid.Row="4" Text="value"/>
+        </Grid>
+        <TextBox Name="postureInfoText" HorizontalAlignment="Left" Height="69" Margin="10,90,0,-13" Grid.Row="2" TextWrapping="Wrap" Text="POSTURE INFO" VerticalAlignment="Top" Width="251" UndoLimit="97" FontSize="24" FontWeight="Bold" Grid.RowSpan="2"/>
+        <Label Name="timerLabel" Content="Timer" HorizontalAlignment="Left" Margin="10,55,0,0" Grid.Row="2" VerticalAlignment="Top" Height="30" Width="103"/>
+        <Button Name="timerResetButton" Content="Reset" HorizontalAlignment="Left" Margin="128,55,0,0" Grid.Row="2" VerticalAlignment="Top" Width="76" Height="30" Click="timerButton_Click"/>
+        <Grid Grid.Column="1" HorizontalAlignment="Left" Height="149" Margin="167,10,0,-9" Grid.Row="2" VerticalAlignment="Top" Width="131" Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Ellipse x:FieldModifier="public" Name="kneesBentControl" Grid.Column="1" Grid.Row="0" Fill="LightGray" HorizontalAlignment="Left" Height="25" Width="25" Stroke="Black" VerticalAlignment="Top"/>
+            <Label Content="Kolana zgięte" Grid.Column="0" HorizontalAlignment="Left" Grid.Row="0" VerticalAlignment="Top" Width="100"/>
+            
+            <Ellipse Name="neckFrontControl" Grid.Column="1" Grid.Row="1" Fill="LightGray" HorizontalAlignment="Left" Height="25" Width="25" Stroke="Black" VerticalAlignment="Top"/>
+            <Label Content="Szyja do przodu" Grid.Column="0" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
+
+            <Ellipse Name="leaningForwardControl" Grid.Column="1" Grid.Row="2" Fill="LightGray" HorizontalAlignment="Left" Height="25" Width="25" Stroke="Black" VerticalAlignment="Top"/>
+            <Label Content="Pochylenie do przodu" Grid.Column="0" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Width="100"/>
+
+            <Ellipse Name="crouchingControl" Grid.Column="1" Grid.Row="3" Fill="LightGray" HorizontalAlignment="Left" Height="25" Width="25" Stroke="Black" VerticalAlignment="Top"/>
+            <Label Content="Garbienie" Grid.Column="0" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Width="100"/>
+
+            <Ellipse Name="sidewaysBendControl" Grid.Column="1" Grid.Row="4" Fill="LightGray" HorizontalAlignment="Left" Height="25" Width="25" Stroke="Black" VerticalAlignment="Top"/>
+            <Label Content="Wychylenie w bok" Grid.Column="0" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Top" Width="100"/>
+
+            <Ellipse Name="loungingControl" Grid.Column="1" Grid.Row="5" Fill="LightGray" HorizontalAlignment="Left" Height="25" Width="25" Stroke="Black" VerticalAlignment="Top"/>
+            <Label Content="Leżenie" Grid.Column="0" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Top" Width="100"/>
+
+               </Grid>
+        <Button Content="RecordGoodPosture" HorizontalAlignment="Left" Margin="172,5,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Grid.Column="1" Grid.RowSpan="2" Click="recordGoodPosture_Click"/>
+        <Label Name="idealSpine" Content="recordedIdealSpine" HorizontalAlignment="Left" Margin="186,18,0,0" Grid.Row="2" VerticalAlignment="Top" Width="123" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Height="41">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="14.515"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+
+    </Grid>
+</Window>
